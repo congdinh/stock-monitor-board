@@ -1,0 +1,28 @@
+apps:
+  - script: ./dist/schedules/crawlListExchange.js
+    name: 'crawl-stock-exchange'
+    watch: false
+    exec_mode: fork
+    cron_restart: '45-55 8 * * 1-5'
+    env:
+      NODE_ENV: production
+    env_production:
+      NODE_ENV: production
+  - script: ./dist/schedules/crawlStockBoard.js
+    name: 'crawl-stock-realtime'
+    watch: false
+    exec_mode: fork
+    cron_restart: '50 8 * * 1-5'
+    env:
+      NODE_ENV: production
+    env_production:
+      NODE_ENV: production
+  - script: ./dist/schedules/syncSheets.js
+    name: 'stock-sync-sheets'
+    watch: false
+    exec_mode: fork
+    cron_restart: '2 * * * *'
+    env:
+      NODE_ENV: production
+    env_production:
+      NODE_ENV: production

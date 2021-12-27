@@ -1,0 +1,10 @@
+apps:
+  - script: ./dist/index.js
+    name: 'stock-monitor-service'
+    watch: false
+    instances: 4
+    exec_mode: cluster
+    env:
+      NODE_ENV: production
+    env_production:
+      NODE_ENV: production
